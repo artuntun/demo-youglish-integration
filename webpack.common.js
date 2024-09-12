@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     content: "./src/content/content.js",
     content_popup: "./src/content/content-popup.js",
+    youglishWidget: "./src/content/youglishWidget.js",
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),

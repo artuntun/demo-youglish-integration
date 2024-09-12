@@ -16,8 +16,7 @@
     "tabs",
     "storage",
     "activeTab",
-    "scripting",
-    "identity"
+    "scripting"
   ],
   "content_scripts": [
     {
@@ -44,7 +43,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "content-popup.html"
+        "content-popup.html",
+        "youglishWidget.js"
       ],
       "matches": [
         "<all_urls>"

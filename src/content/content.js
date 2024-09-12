@@ -1,14 +1,10 @@
-import {
-  extractSentence,
-  isInvalidSelection,
-  preprocessWord,
-} from "./helperFunction.js";
+import { isInvalidSelection, preprocessWord } from "./helperFunction.js";
 
 // Constants
 const IFRAME_WIDTH = 450;
 const IFRAME_HEIGHT = 300;
 
-async function createIframe(rect, word, sentence) {
+async function createIframe(rect, word) {
   const iframe = document.createElement("iframe");
   iframe.src = chrome.runtime.getURL("content-popup.html");
   iframe.style.cssText = `
@@ -25,10 +21,7 @@ async function createIframe(rect, word, sentence) {
   `;
   // Wait for the iframe to load before sending the message
   iframe.onload = () => {
-    iframe.contentWindow.postMessage(
-      { action: "wordRequest", word, sentence },
-      "*"
-    );
+    iframe.contentWindow.postMessage({ action: "wordRequest", word }, "*");
   };
 
   return iframe;
@@ -46,14 +39,9 @@ document.addEventListener("dblclick", async function (event) {
     return;
   }
   const processedWord = preprocessWord(selection.toString().trim());
-  const selectedSentence = extractSentence(selection);
   if (processedWord) {
     const iframePosition = getSelectionPosition(selection);
-    const iframe = await createIframe(
-      iframePosition,
-      processedWord,
-      selectedSentence
-    );
+    const iframe = await createIframe(iframePosition, processedWord);
     addClickOutsideListener(iframe);
 
     document.body.appendChild(iframe);
