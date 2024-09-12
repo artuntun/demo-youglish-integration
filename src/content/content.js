@@ -8,14 +8,6 @@ import {
 const IFRAME_WIDTH = 450;
 const IFRAME_HEIGHT = 300;
 
-export const Tabs = {
-  AI: "ai",
-  DICTIONARY: "dict",
-  WIKIPEDIA: "wiki",
-  PRONUNCIATION: "pron",
-  DEBUG: "dbg",
-};
-
 async function createIframe(rect, word, sentence) {
   const iframe = document.createElement("iframe");
   iframe.src = chrome.runtime.getURL("content-popup.html");
@@ -81,14 +73,3 @@ function addClickOutsideListener(iframe) {
     document.addEventListener("mousedown", handleClickOutside);
   }, 50);
 }
-
-window.addEventListener("message", async function (event) {
-  // TODO: handle different TYPES of messages
-  if (event.data && event.data.action === "getUsedFreeCredits") {
-    const usedCredits = await getUsedFreeCredits();
-    event.source.postMessage(
-      { action: "getUsedFreeCreditsResponse", usedCredits },
-      "*"
-    );
-  }
-});
