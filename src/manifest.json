@@ -31,7 +31,7 @@
     }
   ],
   "content_security_policy": {
-    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' https://youglish.com/public/emb/widget.js;"
+    "sandbox": "sandbox allow-scripts; script-src 'self' https://youglish.com/public/emb/widget.js;"
   },
   "sandbox": {
     "pages": [
