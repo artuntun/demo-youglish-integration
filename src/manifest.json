@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "version": "0.1",
+  "name": "Demo Youglish Integration",
+  "description": "Demo Youglish Integration",
+  "action": {
+    "default_icon": {
+      "16": "./src/icons/get_started16.png",
+      "32": "./src/icons/get_started32.png",
+      "48": "./src/icons/get_started48.png",
+      "128": "./src/icons/get_started128.png"
+    },
+    "default_title": "Demo Youglish Integration"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "scripting",
+    "identity"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "type": "module"
+    }
+  ],
+  "content_security_policy": {
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' https://youglish.com/public/emb/widget.js;"
+  },
+  "sandbox": {
+    "pages": [
+      "content-popup.html"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content-popup.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "./src/icons/get_started16.png",
+    "32": "./src/icons/get_started32.png",
+    "48": "./src/icons/get_started48.png",
+    "128": "./src/icons/get_started128.png"
+  },
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA00ozEbL3Qxiao57kSYRBXOtO9s1yA/xwJ5pEm8M8kx2gi1Az86oAv/EbnIjIXz69xOVMLGCgxvzEuxeIVkt+SK2vdKJ0dZssZtsYGaz8laPTiqPM+F5Bs1KXuxIjQ8sDjYFPfztyB3jWtCms7QZNDiHX9ULlGUXZMjGfuGCtJexMyMQzllpD4DSWhzLkLCOPhrMNQTuYuVoIy+1KZYLRBe/qHRK7zM+qe79y3xTHtBtcU8dUv7Y6/x+1LGYZ3VdnIx/oktGjTYYehCDXSIW4pJ+z7jyQBtMM64Ow86QNWYUcSxaTQIbVpe9bXJ5XAAQ2NozmOGcwHlAna+Dbv3vJGQIDAQAB"
+}

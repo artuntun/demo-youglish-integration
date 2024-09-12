@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    /* Background color */
+    :root {
+      --background-color: #ffffff;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.8);
+      line-height: 1.2;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .content {
+      padding: 10px 20px;
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="popup-container" style="display: flex; width: 100%; height: 100%; background-color: #ffffff">
+    <div class="content" style="flex-grow: 1; overflow-y: auto;">
+      <div class="content-header" id="content-header">
+        <h3 id="header-title" style="margin: 0px;"></h3>
+      </div>
+      <div>
+        <h4>Test</h4>
+      </div>
+    </div>
+  </div>
+  <script src="content_popup.js"></script>
+</body>
+
+</html>
