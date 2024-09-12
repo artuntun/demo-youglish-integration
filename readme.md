@@ -1,4 +1,4 @@
-# How to run code
+# How to build the code
 
 ```
 npm install
